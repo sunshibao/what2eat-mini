@@ -3,7 +3,7 @@
     <!-- 编辑级页头 -->
     <view class="head">
       <view class="head__main">
-        <text class="head__eyebrow">YOUR EATING DIARY</text>
+        <text class="head__eyebrow">你 的 吃 饭 日 记</text>
         <view class="head__title-row">
           <text class="head__title">推荐</text>
           <text class="head__title head__title--italic">记录</text>
@@ -11,7 +11,7 @@
       </view>
       <view class="head__count">
         <text class="head__count-num">{{ String(historyTotal).padStart(2, '0') }}</text>
-        <text class="head__count-unit">RECORDS</text>
+        <text class="head__count-unit">条 记 录</text>
       </view>
     </view>
 
@@ -85,7 +85,7 @@
       </view>
     </view>
 
-    <view v-if="records.length" class="signature">— END · W2E ©{{ year }} —</view>
+    <view v-if="records.length" class="signature">— 完 · W2E ©{{ year }} —</view>
   </view>
 </template>
 
@@ -148,7 +148,7 @@ function formatWeek(item) {
   if (!raw) return ''
   const d = new Date(raw)
   if (isNaN(d.getTime())) return ''
-  return ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][d.getDay()]
+  return ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][d.getDay()]
 }
 
 function formatDistance(distance) {

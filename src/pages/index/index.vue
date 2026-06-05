@@ -6,17 +6,17 @@
     <!-- 顶部 Eyebrow / 编辑级小标记 -->
     <view class="topline">
       <view class="topline__left">
-        <text class="eyebrow">VOL.{{ todayVol }} · {{ todayLabel }}</text>
+        <text class="eyebrow">第 {{ todayVol }} 期 · {{ todayLabel }}</text>
       </view>
       <view class="topline__right" @tap="goHistory">
-        <text class="topline__link">RECORDS</text>
+        <text class="topline__link">推荐记录</text>
         <text class="topline__arrow">→</text>
       </view>
     </view>
 
     <!-- 品牌 / Hero -->
     <view class="hero">
-      <text class="hero__eyebrow">A DAILY EATING JOURNAL</text>
+      <text class="hero__eyebrow">每 日 美 食 手 记</text>
       <view class="hero__title-row">
         <text class="hero__title">What</text>
         <text class="hero__title hero__title--italic">2</text>
@@ -46,13 +46,13 @@
       >
         <view class="cta__inner">
           <template v-if="!loading">
-            <text class="cta__hint">TAP TO PICK</text>
+            <text class="cta__hint">点 我 选 餐</text>
             <text class="cta__main">今天</text>
             <text class="cta__main">吃啥</text>
             <text class="cta__arrow">↗</text>
           </template>
           <template v-else>
-            <text class="cta__hint cta__hint--loading">AI THINKING</text>
+            <text class="cta__hint cta__hint--loading">AI 思 考 中</text>
             <text class="cta__loading-text">{{ loadingText }}</text>
             <view class="cta__dots">
               <view class="cta__dot"></view>
@@ -67,12 +67,12 @@
       <view class="cta-tag cta-tag--left">
         <text>01</text>
         <text class="cta-tag__line"></text>
-        <text>ONE TAP</text>
+        <text>一键决定</text>
       </view>
       <view class="cta-tag cta-tag--right">
         <text>02</text>
         <text class="cta-tag__line"></text>
-        <text>AI PICKED</text>
+        <text>AI 推荐</text>
       </view>
     </view>
 

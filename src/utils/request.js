@@ -11,7 +11,7 @@ import { useUserStore } from '@/stores/user'
 // 不同环境的 baseURL
 const BASE_URL_MAP = {
   development: 'http://localhost:8080/api',
-  production: 'https://api.what2eat.example.com/api'
+  production: 'https://eat.skill86.com/api'
 }
 
 // uni-app 在小程序端 process.env.NODE_ENV 始终可用
@@ -96,7 +96,7 @@ export function request(options = {}) {
         uni.showToast({ title: '网络连接失败', icon: 'none' })
         reject({ code: -1, message: '网络连接失败', raw: err })
       }
-    }).catch(reject)
+    })
   })
 }
 

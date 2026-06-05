@@ -7,7 +7,7 @@
         <view class="profile__avatar-ring"></view>
       </view>
       <view class="profile__info">
-        <text class="profile__hello">HELLO,</text>
+        <text class="profile__hello">你 好，</text>
         <text class="profile__name">{{ userName }}</text>
         <view class="profile__tag">
           <text class="profile__tag-dot"></text>
@@ -35,7 +35,7 @@
     <!-- 设置组 -->
     <view class="section">
       <view class="section__head">
-        <text class="section__eyebrow">PREFERENCES</text>
+        <text class="section__eyebrow">个 性 偏 好</text>
         <text class="section__line"></text>
       </view>
 
@@ -75,7 +75,7 @@
 
     <view class="section">
       <view class="section__head">
-        <text class="section__eyebrow">ABOUT</text>
+        <text class="section__eyebrow">关 于</text>
         <text class="section__line"></text>
       </view>
 
@@ -102,14 +102,14 @@
       </view>
     </view>
 
-    <view class="signature">— W2E ©{{ year }} · MADE WITH 🍊 —</view>
+    <view class="signature">— W2E ©{{ year }} · 用 心 制 作 🍊 —</view>
 
     <!-- ============ 偏好设置 Popup ============ -->
     <view v-if="popupOpen" class="popup" @tap.self="closePopup">
       <view class="popup__sheet" :class="{ 'popup__sheet--in': popupOpen }">
         <view class="popup__head">
           <view>
-            <text class="popup__eyebrow">PREFERENCES</text>
+            <text class="popup__eyebrow">偏 好 设 置</text>
             <text class="popup__title">饮食偏好</text>
           </view>
           <view class="popup__close" @tap="closePopup">×</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "今日推荐",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundColor": "#F8F9FA",
+  "usingComponents": {}
+}

@@ -28,7 +28,8 @@ function wxLoginCode() {
 export const useUserStore = defineStore('user', {
   state: () => ({
     token: '',
-    profile: null
+    profile: null,
+    _loginPromise: null
   }),
 
   getters: {
@@ -76,21 +77,30 @@ export const useUserStore = defineStore('user', {
      */
     async login(force = false) {
       if (this.token && !force) return this.token
-      try {
-        const code = await wxLoginCode()
-        const data = await http.post('/wx/login', { code })
-        const token = data?.token || ''
-        const profile = {
-          user_id: data?.user_id,
-          is_new: !!data?.is_new,
-          ...(this.profile || {})
+      // 已有进行中的登录，直接复用，避免并发触发多次 wx.login
+      if (this._loginPromise) return this._loginPromise
+
+      this._loginPromise = (async () => {
+        try {
+          const code = await wxLoginCode()
+          const data = await http.post('/wx/login', { code })
+          const token = data?.token || ''
+          const profile = {
+            user_id: data?.user_id,
+            is_new: !!data?.is_new,
+            ...(this.profile || {})
+          }
+          this.setLogin({ token, profile })
+          return token
+        } catch (e) {
+          console.warn('[user.login] failed', e)
+          throw e
+        } finally {
+          this._loginPromise = null
         }
-        this.setLogin({ token, profile })
-        return token
-      } catch (e) {
-        console.warn('[user.login] failed', e)
-        throw e
-      }
+      })()
+
+      return this._loginPromise
     },
 
     /** 登出并清理 */

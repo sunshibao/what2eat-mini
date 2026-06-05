@@ -2,8 +2,8 @@
   <view class="page">
     <!-- 顶部 Eyebrow -->
     <view class="head">
-      <text class="head__eyebrow">TODAY'S PICK · {{ today }}</text>
-      <text class="head__no">N°{{ pickNo }}</text>
+      <text class="head__eyebrow">今 日 精 选 · {{ today }}</text>
+      <text class="head__no">第 {{ pickNo }} 号</text>
     </view>
 
     <!-- 主推荐卡片 -->
@@ -51,7 +51,7 @@
     <!-- AI 推荐理由 -->
     <view v-if="hasData && data.reason" class="reason">
       <view class="reason__head">
-        <text class="reason__eyebrow">REASON · 为什么是它</text>
+        <text class="reason__eyebrow">推 荐 理 由 · 为什么是它</text>
         <text class="reason__line"></text>
       </view>
       <text class="reason__text">{{ data.reason }}</text>
